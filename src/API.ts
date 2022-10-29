@@ -8,7 +8,8 @@ export type Question = {
   type: string;
 };
 
-export type QuestionState = Question & { answers: string[] };
+//the below adds the all_answers property to the Question type
+export type QuestionState = Question & { all_answers: string[] };
 export enum Difficulty {
   EASY = "easy",
   MEDIUM = "medium",
@@ -22,9 +23,11 @@ export const fetchQuizQuestions = async (
   const response = await fetch(endPoint);
   const data = await response.json();
 
+  //console.log(data);
+  //below I create the new property "all_answers" and make sure the answers order is never the same
   return data.results.map((question: Question) => ({
     ...question,
-    answer: shuffleArray([
+    all_answers: shuffleArray([
       ...question.incorrect_answers,
       question.correct_answer,
     ]),
