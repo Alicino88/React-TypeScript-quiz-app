@@ -13,17 +13,24 @@ function App() {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
 
-  //console.log(fetchQuizQuestions(totalQuestions, Difficulty.EASY));
+  const [error, setError] = useState(false);
 
   const startQuiz = async () => {
     setLoading(true);
     setGameOver(false);
+
     const newQuestions = await fetchQuizQuestions(
       totalQuestions,
       Difficulty.EASY
     );
+
+    if (newQuestions === undefined) {
+      setLoading(false);
+      setError(true);
+    }
     console.log(newQuestions);
     setQuestions(newQuestions);
+    setLoading(false);
   };
 
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {};
@@ -37,7 +44,8 @@ function App() {
         Start the quiz
       </button>
       <p className="score">your score:</p>
-      <p>Loading questions...</p>
+      {loading && <p>Loading questions...</p>}
+      {error && <p>Oops, there was an error while retrieving the data</p>}
       {/*<QuestionCard
         questionNumber={number + 1}
         totalQuestions={TOTAL_QUESTIONS}
