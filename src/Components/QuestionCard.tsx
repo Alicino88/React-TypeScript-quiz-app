@@ -5,6 +5,7 @@ type Props = {
   userAnswer: any;
   questionNumber: number;
   totalQuestions: number;
+  id: number;
 };
 
 const QuestionCard: React.FC<Props> = ({
@@ -14,6 +15,7 @@ const QuestionCard: React.FC<Props> = ({
   userAnswer,
   questionNumber,
   totalQuestions,
+  id,
 }) => {
   return (
     <div>
@@ -23,8 +25,8 @@ const QuestionCard: React.FC<Props> = ({
       <p dangerouslySetInnerHTML={{ __html: question }}></p>
       <div>
         {answers.map((answer) => (
-          <div>
-            <button disabled={userAnswer} onClick={callback}>
+          <div key={id}>
+            <button disabled={userAnswer} onClick={callback} value={answer}>
               <span dangerouslySetInnerHTML={{ __html: answer }} />{" "}
             </button>
           </div>
