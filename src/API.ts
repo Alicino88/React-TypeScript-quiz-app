@@ -17,13 +17,13 @@ export enum Difficulty {
 }
 
 //case1: data are retrieved
-//case2: url before ? is wrong then, by using await fetch, javascript automaticlly throws an error
+//case2: url before ? is wrong then, by using await fetch inside try block, javascript automaticlly throws an error
 //case3: url after ? is wrong the response actually gets back but response.results is an empty array
 export const fetchQuizQuestions = async (
   amount: number,
   difficulty: Difficulty
 ) => {
-  const endPoint = `https://opentdb.com/api.php?amoun=${amount}&difficulty=${difficulty}&type=multiple`;
+  const endPoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
 
   try {
     const response = await fetch(endPoint);
