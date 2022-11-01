@@ -31,7 +31,7 @@ function App() {
       Difficulty.EASY
     );
 
-    if (newQuestions === undefined) {
+    if (newQuestions === undefined || newQuestions.length === 0) {
       setLoading(false);
       setError(true);
     }
@@ -72,7 +72,7 @@ function App() {
       {!gameOver && <p className="score">your score:</p>}
       {loading && <p>Loading questions...</p>}
       {error && <p>Oops, there was an error while retrieving the data</p>}
-      {!loading && !gameOver && (
+      {!loading && !gameOver && questions.length > 0 && (
         <QuestionCard
           questionNumber={number + 1}
           totalQuestions={totalQuestions}
