@@ -43,7 +43,20 @@ function App() {
     setNumber(0);
   };
 
-  const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {};
+  const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const currentAnswer = e.currentTarget.value;
+    console.log(currentAnswer);
+    const answerIsCorrect = questions[number].correct_answer === currentAnswer;
+    console.log(answerIsCorrect);
+    if (answerIsCorrect) setScore((prev) => prev + 1);
+    const answerObject = {
+      question: questions[number].question,
+      answer: currentAnswer,
+      correct: answerIsCorrect,
+      correctAnswer: questions[number].correct_answer,
+    };
+    setUserAnswers((prev) => [...prev, answerObject]);
+  };
 
   const nextQuestion = () => {};
 
@@ -67,6 +80,7 @@ function App() {
           answers={questions[number].all_answers}
           userAnswer={userAnswers ? userAnswers[number] : undefined}
           callback={checkAnswer}
+          id={Math.random()}
         />
       )}
 
