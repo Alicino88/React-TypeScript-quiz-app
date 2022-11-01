@@ -8,7 +8,7 @@ export type Question = {
   type: string;
 };
 
-//the below adds the all_answers property to the Question type
+//the below adds the all_answers property to the Question type above
 export type QuestionState = Question & { all_answers: string[] };
 export enum Difficulty {
   EASY = "easy",
