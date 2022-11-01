@@ -58,7 +58,14 @@ function App() {
     setUserAnswers((prev) => [...prev, answerObject]);
   };
 
-  const nextQuestion = () => {};
+  const nextQuestion = () => {
+    const nextQuestion = number + 1;
+    if (nextQuestion === totalQuestions) {
+      setGameOver(true);
+    } else {
+      setNumber(nextQuestion);
+    }
+  };
 
   return (
     <div className="App">
@@ -87,7 +94,7 @@ function App() {
       {!gameOver &&
         !loading &&
         userAnswers.length === number + 1 &&
-        number !== totalQuestions && (
+        number !== totalQuestions - 1 && (
           <button className="next" onClick={nextQuestion}>
             Next question
           </button>
