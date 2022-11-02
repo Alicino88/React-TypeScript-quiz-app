@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import QuestionCard from "./Components/QuestionCard";
+import ScoreModal from "./Components/ScoreModal";
 import { fetchQuizQuestions } from "./API";
 import { QuestionState, Difficulty } from "./API";
 
@@ -23,7 +24,10 @@ function App() {
 
   const [error, setError] = useState(false);
 
+  const [showModal, setShowModal] = useState(false);
+
   const startQuiz = async () => {
+    setShowModal(false);
     setLoading(true);
     setGameOver(false);
 
@@ -69,18 +73,25 @@ function App() {
     }
   };
 
+  const showScore = () => {
+    setShowModal(true);
+  };
+
+  const closeScoreModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="App">
       <h1>Quiz</h1>
-      {gameOver || userAnswers.length === totalQuestions ? (
+      {gameOver && (
         <button className="start" onClick={startQuiz}>
           Start the quiz
         </button>
-      ) : null}
+      )}
 
-      {!gameOver && <p className="score">your score:{score}</p>}
       {loading && <p>Loading questions...</p>}
-      {error && <p>Oops, there was an error while retrieving the data</p>}
+      {error && <p>We have a little problem, try again later</p>}
       {!loading && !gameOver && !error && (
         <QuestionCard
           questionNumber={number + 1}
@@ -101,6 +112,17 @@ function App() {
             Next question
           </button>
         )}
+
+      {userAnswers.length === totalQuestions && !loading && (
+        <button onClick={showScore}>check your score</button>
+      )}
+      {showModal && (
+        <ScoreModal
+          score={score}
+          startNewGame={startQuiz}
+          endGame={closeScoreModal}
+        />
+      )}
     </div>
   );
 }
