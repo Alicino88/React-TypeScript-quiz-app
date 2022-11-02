@@ -16,9 +16,13 @@ export enum Difficulty {
   HARD = "hard",
 }
 
-//case1: data are retrieved
-//case2: url before ? is wrong then, by using await fetch inside try block, javascript automaticlly throws an error
-//case3: url after ? is wrong the response actually gets back but response.results is an empty array
+//case1: data are retrieved successfully
+/*case2: The URL before ? has some spelling mistakes: await fetch inside try block throws an error caught in the catch block. 
+I don't get the response back. I console log error and message and with conditional rendering I show a special message inside UI.*/
+/*case3: The query (after ?) is wrong and I get an empty array back. I check with if statement, throw an error and modify UI.
+
+If the words "difficulty and "type" are wrong the data are still retrieved. "amount" cannot be misspelled and also cannot omit &*/
+//it depends on how the API is built: some queries are required, others aren't. it is possible that when non-required queries are misspelled then I get back a defalut value (e.g.multiple)
 export const fetchQuizQuestions = async (
   amount: number,
   difficulty: Difficulty

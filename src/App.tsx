@@ -14,6 +14,7 @@ const totalQuestions = 10;
 
 function App() {
   const [loading, setLoading] = useState(false);
+  //we need to specify that questions array has type QuestionState in order to be able to use the data
   const [questions, setQuestions] = useState<QuestionState[]>([]);
   const [number, setNumber] = useState(0);
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
@@ -30,7 +31,8 @@ function App() {
       totalQuestions,
       Difficulty.EASY
     );
-
+    console.log(newQuestions);
+    //to be able to get undefined, I need to catch the error in fetchQuizQuestions, otherwise "Uncaught (in promise) TypeError" displayed in console.
     if (newQuestions === undefined || newQuestions.length === 0) {
       setLoading(false);
       setError(true);
@@ -76,10 +78,10 @@ function App() {
         </button>
       ) : null}
 
-      {!gameOver && <p className="score">your score:</p>}
+      {!gameOver && <p className="score">your score:{score}</p>}
       {loading && <p>Loading questions...</p>}
       {error && <p>Oops, there was an error while retrieving the data</p>}
-      {!loading && !gameOver && questions.length > 0 && (
+      {!loading && !gameOver && !error && (
         <QuestionCard
           questionNumber={number + 1}
           totalQuestions={totalQuestions}
