@@ -47,9 +47,9 @@ function App() {
 
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
     const currentAnswer = e.currentTarget.value;
-    console.log(currentAnswer);
+
     const answerIsCorrect = questions[number].correct_answer === currentAnswer;
-    console.log(answerIsCorrect);
+
     if (answerIsCorrect) setScore((prev) => prev + 1);
     const answerObject = {
       question: questions[number].question,
