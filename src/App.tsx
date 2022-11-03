@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+//components
 import QuestionCard from "./Components/QuestionCard";
 import ScoreModal from "./Components/ScoreModal";
+import QuizContainer from "./Components/QuizContainer";
+//functions and types
 import { fetchQuizQuestions } from "./API";
 import { QuestionState, Difficulty } from "./API";
 
@@ -82,8 +85,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Quiz</h1>
+    <QuizContainer>
+      <h1>Quiz App</h1>
       {gameOver && (
         <button className="start" onClick={startQuiz}>
           Start the quiz
@@ -123,7 +126,7 @@ function App() {
           endGame={closeScoreModal}
         />
       )}
-    </div>
+    </QuizContainer>
   );
 }
 
