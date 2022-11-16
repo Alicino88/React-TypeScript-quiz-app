@@ -8,19 +8,14 @@ type ButtonProps = {
 
 const ButtonElement = styled.button<Pick<ButtonProps, "secondary">>`
   font-size: 1em;
-  margin: 1em;
-  padding: 0.45em 1em;
-  border: 2px solid #c1511d;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  border: none;
   border-radius: 3px;
-  color: ${(props) => (props.secondary ? "red" : "#c1511d")};
+  color: white;
   text-transform: uppercase;
-  background-color: white;
+  background-color: ${(props) => (props.secondary ? "#4897b1" : "#c1511d")};
   cursor: pointer;
-
-  &:hover {
-    color: white;
-    background-color: #c1511d;
-  }
 `;
 
 const Button: React.FC<ButtonProps> = ({ title, onClickEvent, secondary }) => {
