@@ -5,6 +5,7 @@ import ScoreModal from "./Components/ScoreModal";
 import QuizContainer from "./Components/QuizContainer";
 import Button from "./Components/UI/Button";
 import Title from "./Components/UI/Title";
+import Text from "./Components/UI/Text";
 //functions and types
 import { fetchQuizQuestions } from "./API";
 import { QuestionState, Difficulty } from "./API";
@@ -88,11 +89,11 @@ function App() {
 
   return (
     <QuizContainer>
-      <Title text="Ready to test your knowledge?"></Title>
+      {gameOver && <Title text="Ready to test your knowledge?"></Title>}
       {gameOver && <Button title="Start the quiz" onStartGame={startQuiz} />}
 
-      {loading && <p>Loading questions...</p>}
-      {error && <p>We have a little problem, try again later</p>}
+      {loading && <Text text="Loading questions..." />}
+      {error && <Text text="We have a little problem, try again later" />}
       {!loading && !gameOver && !error && (
         <QuestionCard
           questionNumber={number + 1}
