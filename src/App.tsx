@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import QuestionCard from "./Components/QuestionCard";
 import ScoreModal from "./Components/ScoreModal";
 import QuizContainer from "./Components/QuizContainer";
-import Button from "./Components/Button";
+import Button from "./Components/UI/Button";
+import Title from "./Components/UI/Title";
 //functions and types
 import { fetchQuizQuestions } from "./API";
 import { QuestionState, Difficulty } from "./API";
@@ -87,7 +88,7 @@ function App() {
 
   return (
     <QuizContainer>
-      <h1>Quiz App</h1>
+      <Title text="Ready to test your knowledge?"></Title>
       {gameOver && <Button title="Start the quiz" onStartGame={startQuiz} />}
 
       {loading && <p>Loading questions...</p>}
