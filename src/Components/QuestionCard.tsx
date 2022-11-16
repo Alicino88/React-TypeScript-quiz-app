@@ -1,4 +1,6 @@
+import styled from "styled-components";
 import { AnswerObject } from "../App";
+import Text from "./UI/Text";
 type Props = {
   question: string;
   answers: string[];
@@ -8,6 +10,32 @@ type Props = {
   totalQuestions: number;
   id: number;
 };
+
+const Container = styled.div`
+  text-align: left;
+  p {
+    font-size: 1.2em;
+    color: #484644;
+    margin-bottom: 1em;
+  }
+
+  h3 {
+    color: #254762;
+    border-left: 3px solid #c1511d;
+    padding-left: 0.5rem;
+    margin-bottom: 1em;
+  }
+
+  button {
+    margin-bottom: 0.8rem;
+    background-color: white;
+    color: #254762;
+    border: 2px solid #254762;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+`;
 
 const QuestionCard: React.FC<Props> = ({
   question,
@@ -19,11 +47,11 @@ const QuestionCard: React.FC<Props> = ({
   id,
 }) => {
   return (
-    <div>
+    <Container>
       <p className="number">
         Question: {questionNumber}/{totalQuestions}
       </p>
-      <p dangerouslySetInnerHTML={{ __html: question }}></p>
+      <h3 dangerouslySetInnerHTML={{ __html: question }}></h3>
       <div>
         {answers.map((answer) => (
           <div>
@@ -37,7 +65,7 @@ const QuestionCard: React.FC<Props> = ({
           </div>
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 
