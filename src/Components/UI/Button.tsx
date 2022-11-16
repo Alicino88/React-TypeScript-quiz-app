@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 type ButtonProps = {
   title: string;
-  onStartGame: (e: React.MouseEvent) => void;
+  onClickEvent: (e: React.MouseEvent) => void;
 };
 
 const ButtonElement = styled.button`
@@ -23,8 +23,8 @@ const ButtonElement = styled.button`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ title, onStartGame }) => {
-  return <ButtonElement onClick={onStartGame}>{title}</ButtonElement>;
+const Button: React.FC<ButtonProps> = ({ title, onClickEvent }) => {
+  return <ButtonElement onClick={onClickEvent}>{title}</ButtonElement>;
 };
 
 export default Button;

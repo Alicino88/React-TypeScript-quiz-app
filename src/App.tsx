@@ -90,7 +90,7 @@ function App() {
   return (
     <QuizContainer>
       {gameOver && <Title text="Ready to test your knowledge?"></Title>}
-      {gameOver && <Button title="Start the quiz" onStartGame={startQuiz} />}
+      {gameOver && <Button title="Start the quiz" onClickEvent={startQuiz} />}
 
       {loading && <Text text="Loading questions..." />}
       {error && <Text text="We have a little problem, try again later" />}
@@ -110,13 +110,11 @@ function App() {
         !loading &&
         userAnswers.length === number + 1 &&
         number !== totalQuestions - 1 && (
-          <button className="next" onClick={nextQuestion}>
-            Next question
-          </button>
+          <Button title="Next question" onClickEvent={nextQuestion} />
         )}
 
       {userAnswers.length === totalQuestions && !loading && (
-        <button onClick={showScore}>check your score</button>
+        <Button onClickEvent={showScore} title="check your score" />
       )}
       {showModal && (
         <ScoreModal
