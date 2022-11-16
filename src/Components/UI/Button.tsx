@@ -3,33 +3,32 @@ import styled from "styled-components";
 type ButtonProps = {
   title: string;
   onClickEvent: (e: React.MouseEvent) => void;
+  secondary?: boolean;
 };
 
-const ButtonElement = styled.button`
+const ButtonElement = styled.button<Pick<ButtonProps, "secondary">>`
   font-size: 1em;
   margin: 1em;
   padding: 0.45em 1em;
-  border: 2px solid #254762;
+  border: 2px solid #c1511d;
   border-radius: 3px;
-  color: #254762;
+  color: ${(props) => (props.secondary ? "red" : "#c1511d")};
   text-transform: uppercase;
-  background-color: white;
   background-color: white;
   cursor: pointer;
 
   &:hover {
     color: white;
-    background-color: #254762;
+    background-color: #c1511d;
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ title, onClickEvent }) => {
-  return <ButtonElement onClick={onClickEvent}>{title}</ButtonElement>;
+const Button: React.FC<ButtonProps> = ({ title, onClickEvent, secondary }) => {
+  return (
+    <ButtonElement secondary={secondary} onClick={onClickEvent}>
+      {title}
+    </ButtonElement>
+  );
 };
 
 export default Button;
-
-/*
-  background: ${(props) => (props.primary ? "#39758b" : "white")};
-  color: ${(props) => (props.primary ? "white" : "#39758b")};
-  */

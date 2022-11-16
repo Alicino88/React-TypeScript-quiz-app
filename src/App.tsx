@@ -114,7 +114,7 @@ function App() {
         )}
 
       {userAnswers.length === totalQuestions && !loading && (
-        <Button onClickEvent={showScore} title="check your score" />
+        <Button secondary onClickEvent={showScore} title="check your score" />
       )}
       {showModal && (
         <ScoreModal
