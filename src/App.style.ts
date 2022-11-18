@@ -12,7 +12,6 @@ background-image: url(${background});
 background-size:cover;
 font-family: 'Source Sans Pro', sans-serif;
 display:flex;
-
 justify-content:center;
 height: 100vh
 }
