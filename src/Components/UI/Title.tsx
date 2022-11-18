@@ -5,6 +5,7 @@ const TitleComponent = styled.h1`
   text-align: center;
   color: #254762;
   font-weight: 600;
+  margin-left: 0.5rem;
 `;
 
 type Props = {

@@ -10,6 +10,15 @@ import Text from "./Components/UI/Text";
 import { fetchQuizQuestions } from "./API";
 import { QuestionState, Difficulty } from "./API";
 
+//style
+import Rocket from "./Assets/rocket.png";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export type AnswerObject = {
   question: string;
   answer: string;
@@ -33,9 +42,9 @@ function App() {
   const [showModal, setShowModal] = useState(false);
 
   const startQuiz = async () => {
+    setGameOver(false);
     setShowModal(false);
     setLoading(true);
-    setGameOver(false);
 
     const newQuestions = await fetchQuizQuestions(
       totalQuestions,
@@ -92,12 +101,17 @@ function App() {
 
   return (
     <QuizContainer>
-      {gameOver && <Title text="Ready to test your knowledge?"></Title>}
+      {gameOver && (
+        <Container>
+          <img src={Rocket} alt="rocket" width="40px" />
+          <Title text="Ready to test your knowledge?" />
+        </Container>
+      )}
       {gameOver && <Button title="Start the quiz" onClickEvent={startQuiz} />}
 
       {loading && <Text text="Loading questions..." />}
       {error && <Text text="We have a little problem, try again later" />}
-      {!loading && !gameOver && !error && (
+      {!gameOver && !loading && !error && (
         <QuestionCard
           questionNumber={number + 1}
           totalQuestions={totalQuestions}

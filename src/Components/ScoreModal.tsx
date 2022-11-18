@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Title from "./UI/Title";
 import Button from "./UI/Button";
 
 type Props = {
