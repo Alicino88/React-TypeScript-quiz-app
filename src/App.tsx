@@ -87,6 +87,7 @@ function App() {
 
   const closeScoreModal = () => {
     setShowModal(false);
+    setGameOver(true);
   };
 
   return (
@@ -116,7 +117,7 @@ function App() {
           <Button title="Next question" onClickEvent={nextQuestion} />
         )}
 
-      {userAnswers.length === totalQuestions && !loading && (
+      {userAnswers.length === totalQuestions && !loading && !gameOver && (
         <Button onClickEvent={showScore} title="check your score" />
       )}
       {showModal && (
