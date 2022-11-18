@@ -50,7 +50,7 @@ function App() {
       totalQuestions,
       Difficulty.EASY
     );
-    console.log(newQuestions);
+    //console.log(newQuestions);
     //to be able to get undefined, I need to catch the error in fetchQuizQuestions, otherwise "Uncaught (in promise) TypeError" displayed in console.
     if (newQuestions === undefined || newQuestions.length === 0) {
       setLoading(false);
@@ -119,7 +119,6 @@ function App() {
           answers={questions[number].all_answers}
           userAnswer={userAnswers ? userAnswers[number] : undefined}
           callback={checkAnswer}
-          id={Math.random()}
           correctAnswer={questions[number].correct_answer}
         />
       )}

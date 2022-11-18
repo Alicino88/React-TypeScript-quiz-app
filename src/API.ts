@@ -31,7 +31,7 @@ export const fetchQuizQuestions = async (
 
   try {
     const response = await fetch(endPoint);
-    console.log(response);
+    //console.log(response);
 
     //still need to investigate this: (Reason: CORS header ‘Access-Control-Allow-Origin’ missing).
     //when changing the URL before "?" I don't get a response back, it seems the API doesn't support cross origin requests
@@ -42,7 +42,7 @@ export const fetchQuizQuestions = async (
     }
     */
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
     if (data.results.length === 0) {
       throw new Error("The part after ? contains some mistake");
     }
@@ -55,7 +55,7 @@ export const fetchQuizQuestions = async (
       ]),
     }));
   } catch (error: any) {
-    console.log(error.name);
-    console.log(error.message);
+    //console.log(error.name);
+    //console.log(error.message);
   }
 };
