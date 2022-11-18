@@ -8,7 +8,7 @@ type ButtonProps = {
 
 const ButtonElement = styled.button<Pick<ButtonProps, "outlined">>`
   font-size: 1em;
-  margin-top: 1em;
+  margin-top: 2em;
   padding: 0.5em 1em;
   border: 2px solid #c1511d;
   border-radius: 3px;
