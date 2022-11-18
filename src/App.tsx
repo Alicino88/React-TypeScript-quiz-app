@@ -60,7 +60,9 @@ function App() {
 
     const answerIsCorrect = questions[number].correct_answer === currentAnswer;
 
-    if (answerIsCorrect) setScore((prev) => prev + 1);
+    if (answerIsCorrect) {
+      setScore((prev) => prev + 1);
+    }
     const answerObject = {
       question: questions[number].question,
       answer: currentAnswer,
@@ -103,6 +105,7 @@ function App() {
           userAnswer={userAnswers ? userAnswers[number] : undefined}
           callback={checkAnswer}
           id={Math.random()}
+          correctAnswer={questions[number].correct_answer}
         />
       )}
 

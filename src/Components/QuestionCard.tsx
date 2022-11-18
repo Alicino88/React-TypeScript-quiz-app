@@ -9,6 +9,7 @@ type Props = {
   questionNumber: number;
   totalQuestions: number;
   id: number;
+  correctAnswer: String;
 };
 
 const Container = styled.div`
@@ -36,6 +37,14 @@ const Container = styled.div`
     cursor: pointer;
     border-radius: 3px;
   }
+
+  .redbackground {
+    background-color: #ed9893;
+  }
+
+  .greenBackground {
+    background-color: #b1edad;
+  }
 `;
 
 const QuestionCard: React.FC<Props> = ({
@@ -45,6 +54,7 @@ const QuestionCard: React.FC<Props> = ({
   userAnswer,
   questionNumber,
   totalQuestions,
+  correctAnswer,
   id,
 }) => {
   return (
@@ -60,6 +70,16 @@ const QuestionCard: React.FC<Props> = ({
               disabled={userAnswer ? true : false}
               onClick={callback}
               value={answer}
+              //</div> userAnswer?.answer === answer makes sure that only the answer the user has clicked on becomes red in case it is wrong*/
+              //userAnswer object is undefined until the user clicks on an answer
+
+              className={
+                userAnswer?.answer === answer && userAnswer?.correct === false
+                  ? "redbackground"
+                  : userAnswer && answer === correctAnswer
+                  ? "greenBackground"
+                  : ""
+              }
             >
               <span dangerouslySetInnerHTML={{ __html: answer }} />{" "}
             </button>
