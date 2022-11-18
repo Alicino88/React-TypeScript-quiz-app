@@ -8,7 +8,7 @@ type Props = {
   userAnswer: AnswerObject | undefined;
   questionNumber: number;
   totalQuestions: number;
-  id: number;
+
   correctAnswer: String;
 };
 
@@ -55,8 +55,8 @@ const QuestionCard: React.FC<Props> = ({
   questionNumber,
   totalQuestions,
   correctAnswer,
-  id,
 }) => {
+  //console.log(answers);
   return (
     <Container>
       <p className="number">
@@ -65,7 +65,7 @@ const QuestionCard: React.FC<Props> = ({
       <h3 dangerouslySetInnerHTML={{ __html: question }}></h3>
       <div>
         {answers.map((answer) => (
-          <div>
+          <div key={Math.random()}>
             <button
               disabled={userAnswer ? true : false}
               onClick={callback}
