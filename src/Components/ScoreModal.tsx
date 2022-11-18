@@ -45,7 +45,7 @@ const Container = styled.div`
 
 const ScoreModal: React.FC<Props> = ({ score, startNewGame, endGame }) => {
   return (
-    <Container onClick={endGame}>
+    <Container>
       <div>
         {score >= 8 && <p>You rock!</p>}
         {score >= 5 && score < 8 && <p>Woop woop! Good job!</p>}
