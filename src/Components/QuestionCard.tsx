@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AnswerObject } from "../App";
-import Text from "./UI/Text";
+
 type Props = {
   question: string;
   answers: string[];
@@ -23,7 +23,8 @@ const Container = styled.div`
     color: #254762;
     border-left: 3px solid #c1511d;
     padding-left: 0.5rem;
-    margin-bottom: 1em;
+    margin-bottom: 1.8em;
+    max-width: 30rem;
   }
 
   button {
