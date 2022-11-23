@@ -9,8 +9,7 @@ const StyledDiv = styled.div`
 
   @media (max-width: 700px) {
     padding: 30px 20px;
-    margin: 15px;
-    margin-top: 6rem;
+    margin: 6rem 1.5rem;
   }
 `;
 
