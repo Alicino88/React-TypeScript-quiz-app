@@ -50,6 +50,9 @@ const Container = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
+  @media (max-width: 450px) {
+    display: block;
+  }
 `;
 
 const QuestionCard: React.FC<Props> = ({

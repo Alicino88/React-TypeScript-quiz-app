@@ -17,16 +17,20 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.75);
 
   div {
-    width: 40rem;
+    width: 35rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fffcf9;
-    padding: 60px;
+    padding: 60px 80px;
     border-radius: 14px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 30;
+    @media (max-width: 580px) {
+      padding: 30px 18px;
+      width: 22rem;
+    }
   }
 
   p {
