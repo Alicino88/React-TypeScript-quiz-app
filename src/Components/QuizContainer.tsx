@@ -5,6 +5,7 @@ const StyledDiv = styled.div`
   padding: 60px;
   margin-top: 25vh;
   border-radius: 5px;
+  text-align: center;
 `;
 
 type Props = {
