@@ -6,6 +6,9 @@ const TitleComponent = styled.h1`
   color: #254762;
   font-weight: 600;
   margin-left: 0.5rem;
+  @media (max-width: 450px) {
+    font-size: 1.2rem;
+  }
 `;
 
 type Props = {
