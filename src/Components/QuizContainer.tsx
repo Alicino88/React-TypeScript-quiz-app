@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
   border-radius: 5px;
   text-align: center;
 
-  @media (max-width: 450px) {
+  @media (max-width: 700px) {
     padding: 30px 20px;
     margin: 15px;
     margin-top: 6rem;

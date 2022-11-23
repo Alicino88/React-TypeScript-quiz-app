@@ -37,6 +37,7 @@ const Container = styled.div`
     padding: 0.8rem 1.3rem;
     cursor: pointer;
     border-radius: 3px;
+    font-size: 1rem;
   }
 
   .redbackground {
@@ -50,7 +51,7 @@ const Container = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
-  @media (max-width: 450px) {
+  @media (max-width: 580px) {
     display: block;
   }
 `;
