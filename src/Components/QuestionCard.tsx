@@ -14,6 +14,7 @@ type Props = {
 
 const Container = styled.div`
   text-align: left;
+  max-width: 40rem;
   p {
     font-size: 1.2em;
     color: #484644;
@@ -25,15 +26,15 @@ const Container = styled.div`
     border-left: 3px solid #c1511d;
     padding-left: 0.5rem;
     margin-bottom: 1.8em;
-    max-width: 30rem;
   }
 
   button {
     margin-bottom: 0.8rem;
+    margin-right: 2rem;
     background-color: white;
     color: #254762;
     border: 2px solid #254762;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1.3rem;
     cursor: pointer;
     border-radius: 3px;
   }
@@ -45,6 +46,10 @@ const Container = styled.div`
   .greenBackground {
     background-color: #b1edad;
   }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
 `;
 
 const QuestionCard: React.FC<Props> = ({
@@ -63,7 +68,7 @@ const QuestionCard: React.FC<Props> = ({
         Question: {questionNumber}/{totalQuestions}
       </p>
       <h3 dangerouslySetInnerHTML={{ __html: question }}></h3>
-      <div>
+      <ButtonContainer>
         {answers.map((answer) => (
           <div key={Math.random()}>
             <button
@@ -85,7 +90,7 @@ const QuestionCard: React.FC<Props> = ({
             </button>
           </div>
         ))}
-      </div>
+      </ButtonContainer>
     </Container>
   );
 };
