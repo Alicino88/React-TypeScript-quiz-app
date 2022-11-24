@@ -13,6 +13,7 @@ background-size:cover;
 font-family: 'Source Sans Pro', sans-serif;
 display:flex;
 justify-content:center;
+align-items:center;
 height: 100vh
 }
 
