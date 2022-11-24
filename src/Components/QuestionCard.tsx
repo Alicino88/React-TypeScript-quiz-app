@@ -15,6 +15,7 @@ type Props = {
 const Container = styled.div`
   text-align: left;
   max-width: 40rem;
+  justify-content: center;
   p {
     font-size: 1.2em;
     color: #484644;
@@ -51,7 +52,7 @@ const Container = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
-  @media (max-width: 580px) {
+  @media (max-width: 700px) {
     display: block;
   }
 `;
